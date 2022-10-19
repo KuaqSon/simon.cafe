@@ -1,11 +1,4 @@
-import {
-  createStyles,
-  Header,
-  Burger,
-  Box,
-  Drawer,
-  Stack,
-} from '@mantine/core';
+import { createStyles, Header, Burger, Box, Drawer, Stack } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import Credit from 'components/credit';
 import NavLinkItem from 'components/layout/NavLinkItem';
@@ -14,7 +7,6 @@ import { MAIN_NAV_LINKS } from 'components/layout/PrivateLayout';
 import MainLogo from 'components/shared/main-logo';
 import UserInfoModal from 'components/user-info-modal';
 import Link from 'next/link';
-import { PLAYER_HEIGHT } from 'src/utils/constants';
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -98,7 +90,7 @@ export default function MainHeader() {
 
         <Burger opened={opened} onClick={toggle} size="sm" />
         <Drawer opened={opened} onClose={toggle} padding="xl" size="xl">
-          <Stack mt="40px" pb={`calc(${PLAYER_HEIGHT}px + 16px)`} align="center">
+          <Stack mt="40px" align="center">
             <Link href="/app">
               <Box>
                 <MainLogo />

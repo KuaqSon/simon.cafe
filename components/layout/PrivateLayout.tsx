@@ -5,8 +5,6 @@ import FallbackLoader from 'components/loading/FallbackLoader';
 import { ReactNode } from 'react';
 import { useAuth } from 'src/context/auth-context';
 import { useLargeDesktopBreak, useMobileBreak } from 'src/hook/use-screen-break';
-import { useStore } from 'src/store';
-import { PLAYER_HEIGHT, PLAYER_WIDTH, SIDEBAR_WIDTH } from 'src/utils/constants';
 
 import { IconDisc, IconHeadphones, IconHeart, IconMusic, IconTank } from '@tabler/icons';
 import Credit from 'components/credit';
@@ -30,7 +28,6 @@ export default function PrivateLayout({ children }: { children: ReactNode }): JS
   const isMobile = useMobileBreak();
   const isXl = useLargeDesktopBreak();
   const router = useRouter();
-  const { playingMusic } = useStore((state) => state);
 
   if (!isLoaded) {
     return <FallbackLoader />;
@@ -49,7 +46,7 @@ export default function PrivateLayout({ children }: { children: ReactNode }): JS
     return (
       <Box sx={{ position: 'fixed', top: 0, left: 0, bottom: 0 }}>
         <ScrollArea style={{ height: '100%' }}>
-          <Stack justify="flex-start" sx={{ minWidth: SIDEBAR_WIDTH, width: SIDEBAR_WIDTH }} py="xl" px="sm">
+          <Stack justify="flex-start" py="xl" px="sm">
             <Link href="/app">
               <Box>
                 <MainLogo />
@@ -74,8 +71,6 @@ export default function PrivateLayout({ children }: { children: ReactNode }): JS
       <Box
         style={{
           flex: 1,
-          marginLeft: isMobile ? 0 : SIDEBAR_WIDTH,
-          marginRight: playingMusic && isXl ? PLAYER_WIDTH : 0,
           transition: 'width 0.5s ease-in',
         }}
       >
@@ -85,7 +80,6 @@ export default function PrivateLayout({ children }: { children: ReactNode }): JS
             paddingTop: isMobile ? 84 : 24,
             height: '100vh',
             background: 'linear-gradient(to right, rgb(255, 228, 230), rgb(204, 251, 241))',
-            paddingBottom: isXl ? 0 : playingMusic ? `calc(24px + ${PLAYER_HEIGHT}px)` : 0,
           }}
         >
           {children}
