@@ -62,7 +62,7 @@ export default function FeedsContainer() {
           </Box>
           {lastResult ? (
             <Text align="center" color="gray.8">
-              {lastResult.data.count || 0} kết quả
+              {lastResult?.data?.count || 0} kết quả
             </Text>
           ) : null}
         </Container>
@@ -95,9 +95,9 @@ export default function FeedsContainer() {
               { maxWidth: 755, cols: 1, spacing: 'sm', verticalSpacing: 'sm' },
             ]}
           >
-            {data?.pages.map((group, i) => (
+            {data?.pages?.map((group, i) => (
               <React.Fragment key={i}>
-                {group.data.items.map((cafe) => (
+                {group.data?.items?.map((cafe) => (
                   <CafeCard key={cafe.id} cafe={cafe} onClick={() => setActiveCafe(cafe)} />
                 ))}
               </React.Fragment>
