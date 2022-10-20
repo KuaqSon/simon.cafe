@@ -26,6 +26,12 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
       <Head>
         <title>Simon Cafe | nqson</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+        <script
+          async
+          defer
+          data-website-id="73377e06-2f4b-4d85-9477-fb4f3ac3e984"
+          src="https://umami.nqson.com/umami.js"
+        />
       </Head>
 
       <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
