@@ -1,6 +1,5 @@
-import { createStyles, Header, Box } from '@mantine/core';
+import { createStyles, Header, Box, Anchor } from '@mantine/core';
 import MainLogo from 'components/shared/main-logo';
-import Link from 'next/link';
 import { useAuth } from 'src/context/auth-context';
 
 const useStyles = createStyles((theme) => ({
@@ -62,11 +61,11 @@ export default function PublicHeader() {
   return (
     <Header height={60} sx={{ position: 'fixed', top: 0, left: 0, right: 0 }}>
       <Box className={classes.header}>
-        <Link href={isAuthenticated ? '/app' : '/'}>
+        <Anchor href={isAuthenticated ? '/app' : '/'} underline={false}>
           <Box>
             <MainLogo />
           </Box>
-        </Link>
+        </Anchor>
       </Box>
     </Header>
   );
